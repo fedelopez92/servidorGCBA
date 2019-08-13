@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-08-2019 a las 08:50:31
+-- Tiempo de generación: 13-08-2019 a las 02:24:51
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -73,8 +73,45 @@ CREATE TABLE `ingresos` (
   `hora` varchar(50) NOT NULL,
   `codigoTarjeta` int(11) NOT NULL,
   `dni` int(11) NOT NULL,
-  `idEmpleado` int(11) NOT NULL
+  `nombreEmpleado` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ingresos`
+--
+
+INSERT INTO `ingresos` (`id`, `fecha`, `hora`, `codigoTarjeta`, `dni`, `nombreEmpleado`) VALUES
+(1, '12/8/2019', '5:34 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(2, '12/8/2019', '5:40 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(3, '12/8/2019', '5:42 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(4, '12/8/2019', '5:43 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(5, '12/8/2019', '5:45 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(6, '12/8/2019', '5:46 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(7, '12/8/2019', '5:49 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(8, '12/8/2019', '5:52 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(9, '12/8/2019', '5:52 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(10, '12/8/2019', '5:53 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(11, '12/8/2019', '5:57 p. m.', 12345678, 20543568, 'Guillermo Balcarcel'),
+(12, '12/8/2019', '8:44 p. m.', 12345678, 20543568, 'Diego Pellegrini'),
+(13, '12/8/2019', '8:45 p. m.', 12345678, 20543568, 'Laura Rodriguez'),
+(14, '12/8/2019', '8:57 p. m.', 12345678, 40478598, 'Adrian Zarate'),
+(15, '12/8/2019', '8:58 p. m.', 12345678, 45856932, 'Federico Musso'),
+(16, '12/8/2019', '8:59 p. m.', 12345678, 45321876, 'Sebastian Parasis'),
+(17, '12/8/2019', '8:59 p. m.', 12345678, 45321876, 'Dario Riva'),
+(18, '12/8/2019', '8:59 p. m.', 12345678, 45321876, 'Federico Musso'),
+(19, '12/8/2019', '8:59 p. m.', 12345678, 20313789, 'Laura Rodriguez'),
+(20, '12/8/2019', '9:00 p. m.', 12345678, 20313789, 'Walter Marcote'),
+(21, '12/8/2019', '9:00 p. m.', 12345678, 20313789, 'Esteban Gawron'),
+(22, '12/8/2019', '9:00 p. m.', 12345678, 20313789, 'Adrian Zarate'),
+(23, '12/8/2019', '9:01 p. m.', 47895645, 30543567, 'Lautaro Ariel Basanta'),
+(24, '12/8/2019', '9:01 p. m.', 47895645, 30543567, 'Dario Riva'),
+(25, '12/8/2019', '9:01 p. m.', 47895645, 30543567, 'Rocio Diaz'),
+(26, '12/8/2019', '9:01 p. m.', 47895645, 30543567, 'Diego Pellegrini'),
+(27, '12/8/2019', '9:02 p. m.', 47895645, 30543567, 'Daniel de Almeida'),
+(28, '12/8/2019', '9:12 p. m.', 74125478, 45658962, 'Paula Barrios'),
+(29, '12/8/2019', '9:12 p. m.', 74125478, 45658962, 'Diego Pellegrini'),
+(30, '12/8/2019', '9:12 p. m.', 74125478, 45658962, 'Guillermo Balcarcel'),
+(31, '12/8/2019', '9:22 p. m.', 12345678, 30543567, 'Diego Pellegrini');
 
 -- --------------------------------------------------------
 
@@ -96,7 +133,7 @@ CREATE TABLE `renaper` (
 
 INSERT INTO `renaper` (`dni`, `nombres`, `apellido`, `fechaNacimiento`, `mensaje`) VALUES
 ('', '', '', '', ''),
-('30543567', 'López', 'Alberto', '20/10/1990', 'empleado'),
+('30543567', 'Francisco', 'Hernandez', '20/10/1990', 'empleado'),
 ('20543568', 'Juan', 'Rodriguez', '25/9/1986', 'empleado'),
 ('45321876', 'Candela', 'Luciani', '10/01/1998', 'estudiante'),
 ('20313789', 'Solange', 'Garcia', '25/03/1988', 'empleada'),
@@ -113,25 +150,24 @@ INSERT INTO `renaper` (`dni`, `nombres`, `apellido`, `fechaNacimiento`, `mensaje
 --
 
 CREATE TABLE `tarjetas` (
-  `codigo` int(11) NOT NULL,
-  `estado` varchar(50) NOT NULL
+  `codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tarjetas`
 --
 
-INSERT INTO `tarjetas` (`codigo`, `estado`) VALUES
-(12345678, 'habilitado'),
-(40123654, 'deshabilitado'),
-(45678214, 'habilitado'),
-(47856478, 'habilitado'),
-(47895645, 'habilitado'),
-(74123014, 'deshabilitado'),
-(74125478, 'habilitado'),
-(78945147, 'deshabilitado'),
-(78945210, 'habilitado'),
-(78965414, 'habilitado');
+INSERT INTO `tarjetas` (`codigo`) VALUES
+(12345678),
+(40123654),
+(45678214),
+(47856478),
+(47895645),
+(74123014),
+(74125478),
+(78945147),
+(78945210),
+(78965414);
 
 --
 -- Índices para tablas volcadas
@@ -169,7 +205,7 @@ ALTER TABLE `empleados`
 -- AUTO_INCREMENT de la tabla `ingresos`
 --
 ALTER TABLE `ingresos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
