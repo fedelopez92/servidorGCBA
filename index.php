@@ -86,7 +86,7 @@ $app->get('/renaper/{dni}', function($request, $response, $args) use($db) {
     echo json_encode($resultados); 
 });
 
-//Trae empleados
+//Trae sectores de los empleados
 $app->get('/sectores', function() use($db) {
     $consulta = $db->prepare("select distinct sector from empleados");
     $consulta->execute();
